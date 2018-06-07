@@ -18,14 +18,21 @@ RUN \
   rm -rf /var/lib/apt/lists/* && \
   mkdir $my_dir
 
-COPY auto_build_vue-cli.exp ./$my_dir
-
 WORKDIR ./$my_dir
 
-RUN chmod +x auto_build_vue-cli.exp && expect auto_build_vue-cli.exp
+COPY auto_build_vue-cli.exp .
 
-WORKDIR ./frontend
+COPY docker-entrypoint.sh .
 
-EXPOSE 8080
+RUN chmod +x docker-entrypoint.sh
 
-#ENTRYPOINT ["npm install && npm run dev"]
+RUN chmod +x auto_build_vue-cli.exp
+
+#RUN chmod +x auto_build_vue-cli.exp && \
+#    expect auto_build_vue-cli.exp
+
+# WORKDIR ./frontend
+
+# EXPOSE 8080
+
+# ENTRYPOINT ["npm install && npm run dev"]
