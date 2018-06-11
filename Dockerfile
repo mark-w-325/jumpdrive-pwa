@@ -33,6 +33,6 @@ RUN chmod +x auto_build_vue-cli.exp
 
 # WORKDIR ./frontend
 
-# EXPOSE 8080
+EXPOSE 8080
 
-# ENTRYPOINT ["npm install && npm run dev"]
+CMD ["/bin/bash", "./docker-entrypoint.sh"]
