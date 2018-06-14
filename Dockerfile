@@ -2,6 +2,8 @@ FROM python:latest
 MAINTAINER Mark Williams <maw325@gmail.com>
 
 ARG my_dir
+ARG my_host="0.0.0.0"
+ARG my_port="8080"
 
 RUN \
   apt-get update && \
@@ -32,7 +34,9 @@ RUN chmod +x auto_build_vue-cli.exp
 #    expect auto_build_vue-cli.exp
 
 # WORKDIR ./frontend
+ENV PORT=$my_port
+ENV HOST=$my_host
 
-EXPOSE 8080
+EXPOSE $my_port
 
 CMD ["/bin/bash", "./docker-entrypoint.sh"]
