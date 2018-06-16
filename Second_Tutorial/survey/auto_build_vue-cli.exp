@@ -1,0 +1,26 @@
+#!/usr/bin/env expect
+set timeout 500
+
+spawn vue init webpack frontend
+
+expect "Project name"
+send -- "\r"
+expect "Project description"
+send -- "\r"
+expect "Author"
+send -- "Mark Williams\r"
+expect "Runtime + Compiler"
+send -- "\r"
+expect "Install vue-router?"
+send -- "y\r"
+expect "Use ESLint to lint your code?"
+send -- "y\r"
+expect "Standard"
+send -- "\r"
+expect "Set up unit tests?"
+send -- "n\r"
+expect "Setup e2e tests with Nightwatch?"
+send -- "n\r"
+expect "Should we run"
+send -- "\r"
+expect "vue-cli · Generated" { send "\n" }
