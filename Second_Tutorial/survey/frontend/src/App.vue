@@ -13,4 +13,4 @@ export default {
 
 <style lang="scss">
 @import '~bulma/bulma'
-</style>  
+</style>
